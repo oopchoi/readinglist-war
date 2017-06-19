@@ -1,0 +1,37 @@
+error:
+  whitelabel:
+    enabled: false
+
+amazon:
+  associateId: habuma-20
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+#liquibase:
+#  change-log: classpath:/db/changelog/db.changelog-master.xml
+
+logging:
+  level:
+    root: INFO
+
+---
+
+spring:
+  profiles: development
+
+logging:
+  level:
+    root: DEBUG
+
+---
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:postgresql://10.10.31.33:5432/test
+    username: postgres
+    password: exem
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
